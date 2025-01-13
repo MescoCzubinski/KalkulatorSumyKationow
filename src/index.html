@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+
+    <!-- fonty -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 p-0 bg-top-agrar-green/10 flex justify-center font-body">
+    <div class="m-3 bg-white rounded-3xl container flex flex-col justify-start">
+      <div class="header m-3 flex justify-between">
+        <div class="text-2xl font-header font-bold flex justify-center items-center flex-1"><p>Tytuł kalkulatora</p></div>
+        <div class="h-full flex items-center justify-center">
+          <button id="reset" class="w-24 h-12 flex items-center justify-center border-top-agrar-green border-2 rounded-3xl text-2xl text-top-agrar-green hover:bg-top-agrar-green/25">Resetuj</button>
+        </div>
+      </div>
+      <div class="content mt-5 flex justify-around flex-wrap">
+        <div class="section w-80 p-3 flex flex-col justify-start">
+          <div class="mb-5 section-name text-lg font-bold text-center">NAZWA SEKCJI</div>
+          <div class="section-content">
+            <div class="info mb-5">
+              <div class="text-2xl text-center">Zawartość kationów zasadowych:</div>
+              <!-- <div class="text-3xl mt-4 text-top-agrar-green text-center">wynik j<sup>2</sup></div> -->
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="Ca^2+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="Mg^2+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="K^+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="Na^+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+          </div>
+        </div>
+        <div class="section w-80 p-3 flex flex-col justify-start">
+          <div class="mb-5 section-name text-lg font-bold text-center">NAZWA SEKCJI</div>
+          <div class="section-content">
+            <div class="info mb-5">
+              <div class="text-2xl text-center">Zawartość kationów kwasowych:</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="H^+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="Al^3+" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="info mb-5">
+              <div class="text-2xl text-center">LUB</div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="" placeholder="Wartość Hh" />
+              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
