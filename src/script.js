@@ -37,7 +37,6 @@ const elementHh = document.querySelector("#Hh");
 
 const elementSoilType = document.querySelector("#soil-type");
 const elementSoilHeight = document.querySelector("#soil-height");
-const elementIl = document.querySelector("#il");
 const elementCorg = document.querySelector("#corg");
 
 const elementCaResult = document.querySelector("#Ca-result");
@@ -50,11 +49,15 @@ const elementResult1 = document.querySelector("#result1-container");
 const elementResult2 = document.querySelector("#result2-container");
 const elementResult3 = document.querySelector("#result3-container");
 const elementResult4 = document.querySelector("#result4-container");
+const elementResult5 = document.querySelector("#result5-container");
+const elementResultHumus = document.querySelector("#humus-container");
 
 elementResult1.classList.add("hidden");
 elementResult2.classList.add("hidden");
 elementResult3.classList.add("hidden");
 elementResult4.classList.add("hidden");
+elementResult5.classList.add("hidden");
+elementResultHumus.classList.add("hidden");
 
 document.querySelectorAll("input, select").forEach((inputField) => {
   inputField.addEventListener("input", function () {
@@ -79,11 +82,17 @@ document.querySelectorAll("input, select").forEach((inputField) => {
       displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
       displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
       displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
+      displaySoil(Ca * 20.04, "Ca", 1.399);
+      displaySoil(Mg * 12.155, "Mg", 1.658);
+      displaySoil(K * 39.1, "K", 1.205);
+      displaySoil(Na * 22.99, "Na", 0);
+      displayHumus();
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
       elementResult3.classList.remove("hidden");
       elementResult4.classList.remove("hidden");
+      elementResult5.classList.remove("hidden");
     } else if (Hh !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += Hh;
 
@@ -99,11 +108,13 @@ document.querySelectorAll("input, select").forEach((inputField) => {
       displaySoil(Mg * 12.155, "Mg", 1.658);
       displaySoil(K * 39.1, "K", 1.205);
       displaySoil(Na * 22.99, "Na", 0);
+      displayHumus();
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
       elementResult3.classList.remove("hidden");
       elementResult4.classList.remove("hidden");
+      elementResult5.classList.remove("hidden");
     }
   });
 });
@@ -160,5 +171,11 @@ function displaySoil(value, name, multiplyer) {
   if (multiplyer) {
     const elementO = document.querySelector("#" + name + "-gleba-O");
     elementO.innerHTML = (((value * soil) / 100000) * multiplyer).toFixed(2);
+  }
+}
+function displayHumus() {
+  if (Number(elementCorg.value) !== 0) {
+    elementResultHumus.classList.remove("hidden");
+    document.querySelector("#humus").innerHTML = (Number(elementCorg.value) * 1.724).toFixed(2);
   }
 }
