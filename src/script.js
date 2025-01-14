@@ -9,7 +9,6 @@ function format(inputString) {
     .replace(/(\d+\.\d{2})\d*/g, "$1")
     .replace(/[a-zA-Z]+/g, "");
 }
-
 document.querySelectorAll("input").forEach((inputField) => {
   inputField.addEventListener("input", (event) => {
     const input = event.target;
@@ -38,6 +37,8 @@ const elementHh = document.querySelector("#Hh");
 
 const elementSoilType = document.querySelector("#soil-type");
 const elementSoilHeight = document.querySelector("#soil-height");
+const elementIl = document.querySelector("#il");
+const elementCorg = document.querySelector("#corg");
 
 const elementCaResult = document.querySelector("#Ca-result");
 const elementMgResult = document.querySelector("#Mg-result");
@@ -48,12 +49,14 @@ const elementHResult = document.querySelector("#H-result");
 const elementResult1 = document.querySelector("#result1-container");
 const elementResult2 = document.querySelector("#result2-container");
 const elementResult3 = document.querySelector("#result3-container");
+const elementResult4 = document.querySelector("#result4-container");
 
 elementResult1.classList.add("hidden");
 elementResult2.classList.add("hidden");
 elementResult3.classList.add("hidden");
+elementResult4.classList.add("hidden");
 
-document.querySelectorAll("input").forEach((inputField) => {
+document.querySelectorAll("input, select").forEach((inputField) => {
   inputField.addEventListener("input", function () {
     let Ca = Number(elementCa.value) / 20.04;
     let Mg = Number(elementMg.value) / 12.155;
@@ -65,36 +68,51 @@ document.querySelectorAll("input").forEach((inputField) => {
     let sumZasad = Ca + Mg + K + Na;
 
     let sumKwas = 0;
-    if (H !== 0 && Al !== 0) {
+    if (H !== 0 && Al !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += H + Al;
 
-      display(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
-      display(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
-      display(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
-      display(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
-      display((H + Al) / (sumZasad + sumKwas), "H", 0.15, 0);
-      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", 75, sumZasad + sumKwas, 20.04, 1.399);
-      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", 15, sumZasad + sumKwas, 12.155, 1.658);
+      displayMain(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
+      displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
+      displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
+      displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
+      displayMain(Hh / (sumZasad + sumKwas), "H", 0.15, 0);
+      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
+      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
+      displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
       elementResult3.classList.remove("hidden");
-    } else {
-      display(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
-      display(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
-      display(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
-      display(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
-      display(Hh / (sumZasad + sumKwas), "H", 0.15, 0);
-      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", 75, sumZasad + sumKwas, 20.04, 1.399);
-      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", 15, sumZasad + sumKwas, 12.155, 1.658);
+      elementResult4.classList.remove("hidden");
+    } else if (Hh !== 0 && isNotNull(Ca, Mg, K, Na)) {
+      sumKwas += Hh;
+
+      displayMain(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
+      displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
+      displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
+      displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
+      displayMain(Hh / (sumZasad + sumKwas), "H", 0.15, 0);
+      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
+      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
+      displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
+      displaySoil(Ca * 20.04, "Ca", 1.399);
+      displaySoil(Mg * 12.155, "Mg", 1.658);
+      displaySoil(K * 39.1, "K", 1.205);
+      displaySoil(Na * 22.99, "Na", 0);
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
       elementResult3.classList.remove("hidden");
+      elementResult4.classList.remove("hidden");
     }
   });
 });
-function display(value, name, x, y) {
+function isNotNull(Ca, Mg, K, Na) {
+  if (Ca !== 0 && Mg !== 0 && K !== 0 && Na !== 0 && Number(elementSoilType.value) !== 0) {
+    return true;
+  }
+}
+function displayMain(value, name, x, y) {
   const element = document.querySelector("#" + name + "-result");
   if (value > x) {
     element.classList.remove("green");
@@ -111,32 +129,36 @@ function display(value, name, x, y) {
   }
   element.innerHTML = (Math.round(value * 1000) / 10).toString() + " %";
 }
-function displayRegulations(value, name, x, pojWym, multiplyer1, multiplyer2) {
+function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   const elementCel = document.querySelector("#" + name + "-cel");
+  const elementInput = document.querySelector("#" + name + "-cel-input");
   const elementIlosc = document.querySelector("#" + name + "-ilosc");
   const elementDawkaMg = document.querySelector("#" + name + "-dawka-mg");
   const elementDawkaKg = document.querySelector("#" + name + "-dawka-kg");
   const elementDawkaKgO = document.querySelector("#" + name + "-dawka-kg-O");
 
   soil = Number(elementSoilHeight.value) * Number(elementSoilType.value) * 100;
+  x = Number(elementInput.value) * 100;
 
-  value = Math.round(value * 1000) / 10;
-  elementCel.innerHTML = Math.round((x - value) * 100) / 100;
-  elementIlosc.innerHTML = Math.round((x - value) * pojWym) / 100;
-  elementDawkaMg.innerHTML = ((x - value) * pojWym * multiplyer1) / 100;
-  elementDawkaKg.innerHTML = ((x - value) * pojWym * multiplyer1 * soil) / 100000;
-  elementDawkaKgO.innerHTML = (((x - value) * pojWym * multiplyer1 * soil) / 100000) * multiplyer2;
+  result = x - value * 100;
+  elementCel.innerHTML = result.toFixed(1) + " %";
+  result *= pojWym / 100;
+  elementIlosc.innerHTML = result.toFixed(2);
+  result *= multiplyer1;
+  elementDawkaMg.innerHTML = result.toFixed(2);
+  result *= soil / 1000;
+  elementDawkaKg.innerHTML = result.toFixed(2);
+  result *= multiplyer2;
+  elementDawkaKgO.innerHTML = result.toFixed(2);
 }
+function displaySoil(value, name, multiplyer) {
+  const element = document.querySelector("#" + name + "-gleba");
+  soil = Number(elementSoilHeight.value) * Number(elementSoilType.value) * 100;
 
-document.querySelector("#reset-section").addEventListener("click", function () {
-  const elements = [elementHh, elementH, elementAl];
-  for (element of elements) {
-    element.value = null;
-    element.disabled = false;
-    element.classList.remove("visited");
+  element.innerHTML = ((value * soil) / 100000).toFixed(2);
+
+  if (multiplyer) {
+    const elementO = document.querySelector("#" + name + "-gleba-O");
+    elementO.innerHTML = (((value * soil) / 100000) * multiplyer).toFixed(2);
   }
-
-  elementHh.placeholder = "Wartość Hh";
-  elementH.placeholder = "H^+";
-  elementAl.placeholder = "Al^3+";
-});
+}

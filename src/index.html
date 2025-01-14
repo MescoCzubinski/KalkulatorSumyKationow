@@ -23,26 +23,24 @@
       <div class="content mt-5 flex justify-around flex-wrap">
         <!-- zasady -->
         <div class="section w-80 p-3 flex flex-col justify-start">
-          <!-- <div class="mb-5 section-name text-lg font-bold text-center">NAZWA SEKCJI</div> -->
           <div class="section-content">
-            <div class="info mb-8">
+            <div class="info mb-12">
               <div class="text-2xl text-center">Zawartość kationów zasadowych:</div>
-              <!-- <div class="text-3xl mt-4 text-top-agrar-green text-center">wynik j<sup>2</sup></div> -->
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca^2+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg^2+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K^+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-10 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na^+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
@@ -58,11 +56,11 @@
               <div class="text-2xl text-center">Dla gleb kwaśnych zawartość kationów kwasowych:</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H^+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al^3+" />
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al³⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
           </div>
@@ -70,7 +68,7 @@
         <!-- gleba -->
         <div class="section w-80 p-3 flex flex-col justify-start">
           <div class="section-content">
-            <div class="info mb-10 mt-6 flex justify-around items-center">
+            <div class="info mb-14 mt-6 flex justify-around items-center">
               <div class="text-2xl text-center">Rodzaj gleby:</div>
             </div>
             <div class="input mb-5 flex">
@@ -115,12 +113,20 @@
               </select>
               <div class="ml-2 text-xl flex items-center">cm</div>
             </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="il" placeholder="Zawartość iłu" />
+              <div class="ml-2 text-xl flex items-center">mg/100g</div>
+            </div>
+            <div class="input mb-5 flex">
+              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość Corg." />
+              <div class="ml-2 text-xl flex items-center">mg/100g</div>
+            </div>
           </div>
         </div>
         <!-- wyniki -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="result1-container">
           <div class="section-content">
-            <div class="info mb-5 flex justify-around items-center">
+            <div class="info mb-12 flex justify-around items-center">
               <div class="text-2xl text-center">Procentowy udział kationów w komp. sorp.:</div>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -148,11 +154,32 @@
         <!-- wyniki Ca-->
         <div class="section w-80 p-3 flex flex-col justify-start" id="result2-container">
           <div class="section-content">
-            <div class="info mb-5 flex justify-around items-center">
+            <div class="info mb-12 flex justify-around items-center">
               <div class="text-2xl text-center">Regulacja wapnia w kompleksie sorpcyjnym:</div>
             </div>
+            <div class="input mb-5 flex">
+              <div class="mr-2 text-xl flex items-center">Cel:</div>
+              <select class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca-cel-input">
+                <option value="0.65">65%</option>
+                <option value="0.66">66%</option>
+                <option value="0.67">67%</option>
+                <option value="0.68">68%</option>
+                <option value="0.69">69%</option>
+                <option value="0.70">70%</option>
+                <option value="0.71">71%</option>
+                <option value="0.72">72%</option>
+                <option value="0.73">73%</option>
+                <option value="0.74">74%</option>
+                <option value="0.75" selected>75%</option>
+                <option value="0.76">76%</option>
+                <option value="0.77">77%</option>
+                <option value="0.78">78%</option>
+                <option value="0.79">79%</option>
+                <option value="0.80">80%</option>
+              </select>
+            </div>
             <div class="info mb-5 flex justify-center">
-              <div class="text-2xl text-center">Cel Ca<sup>2+</sup> 75%:</div>
+              <div class="text-2xl text-center">Cel Ca<sup>2+</sup>:</div>
               <div class="text-3xl ml-4 text-center" id="Ca-cel"></div>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -176,11 +203,22 @@
         <!-- wyniki Mg -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="result3-container">
           <div class="section-content">
-            <div class="info mb-5 flex justify-around items-center">
+            <div class="info mb-12 flex justify-around items-center">
               <div class="text-2xl text-center">Regulacja magnezu w kompleksie sorpcyjnym:</div>
             </div>
+            <div class="input mb-5 flex">
+              <div class="mr-2 text-xl flex items-center">Cel:</div>
+              <select class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg-cel-input">
+                <option value="0.10">10%</option>
+                <option value="0.11">11%</option>
+                <option value="0.12">12%</option>
+                <option value="0.13">13%</option>
+                <option value="0.14">14%</option>
+                <option value="0.15" selected>15%</option>
+              </select>
+            </div>
             <div class="info mb-5 flex justify-center">
-              <div class="text-2xl text-center">Cel Mg<sup>2+</sup> 15%:</div>
+              <div class="text-2xl text-center">Cel Mg<sup>2+</sup>:</div>
               <div class="text-3xl ml-4 text-center" id="Mg-cel"></div>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -198,6 +236,78 @@
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka kg/ha MgO:</div>
               <div class="text-3xl ml-4 text-center" id="Mg-dawka-kg-O"></div>
+            </div>
+          </div>
+        </div>
+        <!-- wyniki K -->
+        <div class="section w-80 p-3 flex flex-col justify-start" id="result4-container">
+          <div class="section-content">
+            <div class="info mb-12 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja potasu w kompleksie sorpcyjnym:</div>
+            </div>
+            <div class="input mb-5 flex">
+              <div class="mr-2 text-xl flex items-center">Cel:</div>
+              <select class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K-cel-input">
+                <option value="0">0%</option>
+                <option value="0.01">1%</option>
+                <option value="0.02" selected>2%</option>
+              </select>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Cel K<sup>+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="K-cel"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Ilość K<sup>+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="K-ilosc"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Dawka w mg K:</div>
+              <div class="text-3xl ml-4 text-center" id="K-dawka-mg"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Dawka kg/ha K:</div>
+              <div class="text-3xl ml-4 text-center" id="K-dawka-kg"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Dawka kg/ha KgO:</div>
+              <div class="text-3xl ml-4 text-center" id="K-dawka-kg-O"></div>
+            </div>
+          </div>
+        </div>
+        <!-- składniki -->
+        <div class="section w-80 p-3 flex flex-col justify-start" id="result4-container">
+          <div class="section-content">
+            <div class="info mb-12 flex justify-around items-center">
+              <div class="text-2xl text-center">Zawartość składników w glebie w t/ha:</div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Ca<sup>2+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="Ca-gleba"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">CaO:</div>
+              <div class="text-3xl ml-4 text-center" id="Ca-gleba-O"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Mg<sup>2+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="Mg-gleba"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">MgO:</div>
+              <div class="text-3xl ml-4 text-center" id="Mg-gleba-O"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">K<sup>+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="K-gleba"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">K<sup>2</sup>O:</div>
+              <div class="text-3xl ml-4 text-center" id="K-gleba-O"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Na<sup>+</sup>:</div>
+              <div class="text-3xl ml-4 text-center" id="Na-gleba"></div>
             </div>
           </div>
         </div>
