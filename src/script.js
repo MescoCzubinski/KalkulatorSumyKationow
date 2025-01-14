@@ -37,6 +37,7 @@ const elementHh = document.querySelector("#Hh");
 
 const elementSoilType = document.querySelector("#soil-type");
 const elementSoilHeight = document.querySelector("#soil-height");
+const elementIl = document.querySelector("#il");
 const elementCorg = document.querySelector("#corg");
 
 const elementCaResult = document.querySelector("#Ca-result");
@@ -47,17 +48,24 @@ const elementHResult = document.querySelector("#H-result");
 
 const elementResult1 = document.querySelector("#result1-container");
 const elementResult2 = document.querySelector("#result2-container");
-const elementResult3 = document.querySelector("#result3-container");
-const elementResult4 = document.querySelector("#result4-container");
-const elementResult5 = document.querySelector("#result5-container");
+const elementResultCa = document.querySelector("#result-Ca-container");
+const elementResultMg = document.querySelector("#result-Mg-container");
+const elementResultK = document.querySelector("#result-K-container");
 const elementResultHumus = document.querySelector("#humus-container");
+
+const elementCaPrzekroczony = document.querySelector("#Ca-cel-przekroczony");
+const elementMgPrzekroczony = document.querySelector("#Mg-cel-przekroczony");
+const elementKPrzekroczony = document.querySelector("#K-cel-przekroczony");
 
 elementResult1.classList.add("hidden");
 elementResult2.classList.add("hidden");
-elementResult3.classList.add("hidden");
-elementResult4.classList.add("hidden");
-elementResult5.classList.add("hidden");
+elementResultCa.classList.add("hidden");
+elementResultMg.classList.add("hidden");
+elementResultK.classList.add("hidden");
 elementResultHumus.classList.add("hidden");
+elementCaPrzekroczony.classList.add("hidden");
+elementMgPrzekroczony.classList.add("hidden");
+elementKPrzekroczony.classList.add("hidden");
 
 document.querySelectorAll("input, select").forEach((inputField) => {
   inputField.addEventListener("input", function () {
@@ -90,9 +98,6 @@ document.querySelectorAll("input, select").forEach((inputField) => {
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
-      elementResult3.classList.remove("hidden");
-      elementResult4.classList.remove("hidden");
-      elementResult5.classList.remove("hidden");
     } else if (Hh !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += Hh;
 
@@ -112,9 +117,6 @@ document.querySelectorAll("input, select").forEach((inputField) => {
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
-      elementResult3.classList.remove("hidden");
-      elementResult4.classList.remove("hidden");
-      elementResult5.classList.remove("hidden");
     }
   });
 });
@@ -152,30 +154,67 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   x = Number(elementInput.value) * 100;
 
   result = x - value * 100;
+  if (result >= 0) {
+    document.querySelector("#" + name + "-cel-przekroczony").classList.add("hidden");
+    document.querySelector("#result-" + name + "-container").classList.remove("hidden");
+  } else {
+    document.querySelector("#result-" + name + "-container").classList.add("hidden");
+    document.querySelector("#" + name + "-cel-przekroczony").classList.remove("hidden");
+  }
+
   elementCel.innerHTML = result.toFixed(1) + " %";
   result *= pojWym / 100;
-  elementIlosc.innerHTML = result.toFixed(2);
+  elementIlosc.innerHTML = result.toFixed(2) + " cmol(+)/kg";
   result *= multiplyer1;
-  elementDawkaMg.innerHTML = result.toFixed(2);
+  elementDawkaMg.innerHTML = result.toFixed(2) + " mg " + name;
   result *= soil / 1000;
-  elementDawkaKg.innerHTML = result.toFixed(2);
+  elementDawkaKg.innerHTML = result.toFixed(2) + " kg/ha " + name;
   result *= multiplyer2;
-  elementDawkaKgO.innerHTML = result.toFixed(2);
+  if (name === "K") {
+    elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "<sub>2</sub>O";
+  } else {
+    elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "O";
+  }
 }
 function displaySoil(value, name, multiplyer) {
   const element = document.querySelector("#" + name + "-gleba");
   soil = Number(elementSoilHeight.value) * Number(elementSoilType.value) * 100;
 
-  element.innerHTML = ((value * soil) / 100000).toFixed(2);
+  element.innerHTML = ((value * soil) / 100000).toFixed(2) + " t/ha";
 
   if (multiplyer) {
     const elementO = document.querySelector("#" + name + "-gleba-O");
-    elementO.innerHTML = (((value * soil) / 100000) * multiplyer).toFixed(2);
+    elementO.innerHTML = (((value * soil) / 100000) * multiplyer).toFixed(2) + " t/ha";
   }
 }
 function displayHumus() {
   if (Number(elementCorg.value) !== 0) {
     elementResultHumus.classList.remove("hidden");
-    document.querySelector("#humus").innerHTML = (Number(elementCorg.value) * 1.724).toFixed(2);
+    document.querySelector("#humus").innerHTML = (Number(elementCorg.value) * 1.724).toFixed(2) + " %";
   }
 }
+document.querySelector("#reset").addEventListener("click", function () {
+  const elementsToClean = [document.querySelector("#Ca"), document.querySelector("#Mg"), document.querySelector("#K"), document.querySelector("#Na"), document.querySelector("#H"), document.querySelector("#Al"), document.querySelector("#Hh"), document.querySelector("#il"), document.querySelector("#corg"), document.querySelector("#Ca-result"), document.querySelector("#Mg-result"), document.querySelector("#K-result"), document.querySelector("#Na-result"), document.querySelector("#H-result")];
+
+  // Iterate over the array and clean each element
+  elementsToClean.forEach((element) => {
+    element.value = null;
+    element.innerHTML = "";
+    element.classList.remove("visited");
+  });
+
+  elementSoilType.value = "0";
+  elementSoilType.classList.remove("visited");
+  elementSoilHeight.value = "30";
+  elementSoilHeight.classList.remove("visited");
+
+  elementResult1.classList.add("hidden");
+  elementResult2.classList.add("hidden");
+  elementResultCa.classList.add("hidden");
+  elementResultMg.classList.add("hidden");
+  elementResultK.classList.add("hidden");
+  elementResultHumus.classList.add("hidden");
+  elementCaPrzekroczony.classList.add("hidden");
+  elementMgPrzekroczony.classList.add("hidden");
+  elementKPrzekroczony.classList.add("hidden");
+});
