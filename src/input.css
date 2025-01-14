@@ -20,3 +20,12 @@ select.visited {
   @apply border-black;
   @apply text-black;
 }
+.green{
+  @apply text-top-agrar-green;
+}
+.blue{
+  color: #6066ff;
+}
+.red{
+  color: #f91c1c;
+}
