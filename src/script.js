@@ -37,7 +37,7 @@ const elementHh = document.querySelector("#Hh");
 
 const elementSoilType = document.querySelector("#soil-type");
 const elementSoilHeight = document.querySelector("#soil-height");
-const elementIl = document.querySelector("#il");
+// const elementIl = document.querySelector("#il");
 const elementCorg = document.querySelector("#corg");
 
 const elementCaResult = document.querySelector("#Ca-result");
@@ -86,7 +86,7 @@ document.querySelectorAll("input, select").forEach((inputField) => {
       displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
       displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
       displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
-      displayMain(Hh / (sumZasad + sumKwas), "H", 0.15, 0);
+      displayMain(sumKwas / (sumZasad + sumKwas), "H", 0.15, 0);
       displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
       displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
       displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
@@ -194,9 +194,8 @@ function displayHumus() {
   }
 }
 document.querySelector("#reset").addEventListener("click", function () {
-  const elementsToClean = [document.querySelector("#Ca"), document.querySelector("#Mg"), document.querySelector("#K"), document.querySelector("#Na"), document.querySelector("#H"), document.querySelector("#Al"), document.querySelector("#Hh"), document.querySelector("#il"), document.querySelector("#corg"), document.querySelector("#Ca-result"), document.querySelector("#Mg-result"), document.querySelector("#K-result"), document.querySelector("#Na-result"), document.querySelector("#H-result")];
+  const elementsToClean = [document.querySelector("#Ca"), document.querySelector("#Mg"), document.querySelector("#K"), document.querySelector("#Na"), document.querySelector("#H"), document.querySelector("#Al"), document.querySelector("#Hh"), document.querySelector("#corg"), document.querySelector("#Ca-result"), document.querySelector("#Mg-result"), document.querySelector("#K-result"), document.querySelector("#Na-result"), document.querySelector("#H-result")];
 
-  // Iterate over the array and clean each element
   elementsToClean.forEach((element) => {
     element.value = null;
     element.innerHTML = "";

@@ -24,27 +24,27 @@
         <!-- zasady -->
         <div class="section w-80 p-3 flex flex-col justify-start">
           <div class="section-content">
-            <div class="info mb-12">
+            <div class="info mb-6">
               <div class="text-2xl text-center">Zawartość kationów zasadowych:</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-10 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
           </div>
@@ -52,23 +52,26 @@
         <!-- kwasy -->
         <div class="section w-80 p-3 flex flex-col justify-start">
           <div class="section-content">
-            <div class="info mb-4 flex justify-around items-center">
-              <div class="text-2xl text-center">Dla gleb kwaśnych zawartość kationów kwasowych:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Zawartość kationów kwasowych*:</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al³⁺" />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al³⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+            </div>
+            <div class="info mb-12">
+              <div class="text-2xl text-center">* Opcja dla gleb kwaśnych (pH poniżej 6.0).</div>
             </div>
           </div>
         </div>
         <!-- gleba -->
         <div class="section w-80 p-3 flex flex-col justify-start">
           <div class="section-content">
-            <div class="info mb-14 mt-6 flex justify-around items-center">
+            <div class="info mb-8 mt-6 flex justify-around items-center">
               <div class="text-2xl text-center">Rodzaj gleby:</div>
             </div>
             <div class="input mb-5 flex">
@@ -113,12 +116,12 @@
               </select>
               <div class="ml-2 text-xl flex items-center">cm</div>
             </div>
-            <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="il" placeholder="Zawartość iłu" />
+            <!-- <div class="input mb-5 flex">
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="il" placeholder="Zawartość iłu" />
               <div class="ml-2 text-xl flex items-center">mg/100g</div>
-            </div>
+            </div> -->
             <div class="input mb-5 flex">
-              <input type="text" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość Corg." />
+              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość C-org." />
               <div class="ml-2 text-xl flex items-center">mg/100g</div>
             </div>
           </div>
@@ -126,7 +129,7 @@
         <!-- wyniki -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="result1-container">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
+            <div class="info mb-6 flex justify-around items-center">
               <div class="text-2xl text-center">Procentowy udział kationów w komp. sorp.:</div>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -154,8 +157,8 @@
         <!-- wyniki Ca-->
         <div class="section w-80 p-3 flex flex-col justify-start" id="Ca-cel-przekroczony">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja wapnia w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>wapnia</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
               <div class="text-3xl text-top-agrar-green text-center">Nie nawozić, cel przekroczony</div>
@@ -164,8 +167,8 @@
         </div>
         <div class="section w-80 p-3 flex flex-col justify-start" id="result-Ca-container">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja wapnia w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>wapnia</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="input mb-5 flex">
               <div class="mr-2 text-xl flex items-center">Cel:</div>
@@ -180,12 +183,12 @@
                 <option value="0.72">72%</option>
                 <option value="0.73">73%</option>
                 <option value="0.74">74%</option>
-                <option value="0.75" selected>75%</option>
+                <option value="0.75">75%</option>
                 <option value="0.76">76%</option>
                 <option value="0.77">77%</option>
                 <option value="0.78">78%</option>
                 <option value="0.79">79%</option>
-                <option value="0.80">80%</option>
+                <option value="0.80" selected>80%</option>
               </select>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -213,8 +216,8 @@
         <!-- wyniki Mg -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="Mg-cel-przekroczony">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja magnezu w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>magnezu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
               <div class="text-3xl text-top-agrar-green text-center">Nie nawozić, cel przekroczony</div>
@@ -223,8 +226,8 @@
         </div>
         <div class="section w-80 p-3 flex flex-col justify-start" id="result-Mg-container">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja magnezu w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>magnezu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="input mb-5 flex">
               <div class="mr-2 text-xl flex items-center">Cel:</div>
@@ -262,8 +265,8 @@
         <!-- wyniki K -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="K-cel-przekroczony">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja potasu w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>potasu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
               <div class="text-3xl text-top-agrar-green text-center">Nie nawozić, cel przekroczony</div>
@@ -272,16 +275,16 @@
         </div>
         <div class="section w-80 p-3 flex flex-col justify-start" id="result-K-container">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
-              <div class="text-2xl text-center">Regulacja potasu w kompleksie sorpcyjnym:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Regulacja <b>potasu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="input mb-5 flex">
               <div class="mr-2 text-xl flex items-center">Cel:</div>
               <select class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K-cel-input">
                 <option value="0.02">2%</option>
                 <option value="0.03">3%</option>
-                <option value="0.04" selected>4%</option>
-                <option value="0.05">5%</option>
+                <option value="0.04">4%</option>
+                <option value="0.05" selected>5%</option>
               </select>
             </div>
             <div class="info mb-5 flex justify-center">
@@ -309,7 +312,7 @@
         <!-- składniki -->
         <div class="section w-80 p-3 flex flex-col justify-start" id="result2-container">
           <div class="section-content">
-            <div class="info mb-12 flex justify-around items-center">
+            <div class="info mb-6 flex justify-around items-center">
               <div class="text-2xl text-center">Zawartość składników w glebie w t/ha:</div>
             </div>
             <div class="info mb-5 flex justify-center">
