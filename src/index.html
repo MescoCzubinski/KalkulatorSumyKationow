@@ -28,23 +28,23 @@
               <div class="text-2xl text-center">Zawartość kationów zasadowych:</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-10 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
           </div>
@@ -61,11 +61,11 @@
               </div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="H" placeholder="H⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al³⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Al" placeholder="Al³⁺" />
               <div class="ml-2 text-xl flex items-center">mmol/100g</div>
             </div>
             <div class="info mb-12">
@@ -76,21 +76,33 @@
         <!-- gleba -->
         <div class="section w-80 p-3 flex flex-col justify-start">
           <div class="section-content">
-            <div class="info mb-8 mt-6 flex justify-around items-center">
-              <div class="text-2xl text-center">Rodzaj gleby i próchnica:</div>
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Rodzaj gleby, miąższość i próchnica:</div>
             </div>
             <div class="input mb-5 flex">
               <div class="mr-2 text-xl flex items-center">Rodzaj:</div>
               <select class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="soil-type">
                 <option value="0" selected hidden>wybierz rodzaj gleby</option>
-                <option value="1.46">piasek słabogliniasty</option>
-                <option value="1.58">piasek gliniasty</option>
-                <option value="1.48">glina lekka</option>
-                <option value="1.35">glina średnia</option>
-                <option value="1.89">glina ciężka</option>
-                <option value="1.25">glina pylasta</option>
-                <option value="1.12">pył gliniasty</option>
-                <option value="1.85">ił</option>
+                <option value="1.41">piasek luźny</option>
+                <option value="1.37">piasek słabo gliniasty pylasty</option>
+                <option value="1.53">piasek słabo gliniasty</option>
+                <option value="1.48">piasek gliniasty lekki</option>
+                <option value="1.47">piasek gliniasty lekki pylasty</option>
+                <option value="1.55">piasek gliniasty mocny</option>
+                <option value="1.49">piasek gliniasty mocny pylasty</option>
+                <option value="1.5">glina piaszczysta</option>
+                <option value="1.510">glina piaszczysta pylasta</option>
+                <option value="1.51">glina lekka</option>
+                <option value="1.52">glina lekka pylasta</option>
+                <option value="1.42">glina średnia</option>
+                <option value="1.45">glina średnia pylasta</option>
+                <option value="1.3">glina ciężka</option>
+                <option value="1.470">glina ciężka pylasta</option>
+                <option value="1.4">ił pylasty</option>
+                <option value="1.2">ił</option>
+                <option value="1.32">pył piaszczysty</option>
+                <option value="1.44">pył gliniasty</option>
+                <option value="1.410">pył ilasty</option>
               </select>
             </div>
             <div class="input mb-5 flex">
@@ -122,11 +134,11 @@
               <div class="ml-2 text-xl flex items-center">cm</div>
             </div>
             <!-- <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="il" placeholder="Zawartość iłu" />
+              <input type="text"  inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="il" placeholder="Zawartość iłu" />
               <div class="ml-2 text-xl flex items-center">mg/100g</div>
             </div> -->
             <div class="input mb-5 flex">
-              <input type="text" pattern="[0-9]*" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość C-org." />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość C-org." />
               <div class="ml-2 text-xl flex items-center">mg/100g</div>
             </div>
           </div>
