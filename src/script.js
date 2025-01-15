@@ -173,7 +173,7 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   if (name === "K") {
     elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "<sub>2</sub>O";
   } else {
-    elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "O";
+    elementDawkaKgO.innerHTML = result.toFixed(0) + " kg/ha " + name + "O";
   }
 }
 function displaySoil(value, name, multiplyer) {

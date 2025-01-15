@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         "top-agrar-green": "rgb(0, 132, 55)",
+        "too-much": "#f91c1c",
+        "too-little": "#6066ff",
         "bg-info": "#a3a3a3",
       },
     },
