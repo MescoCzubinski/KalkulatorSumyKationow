@@ -29,23 +29,23 @@
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
-              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
-              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
-              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
             </div>
             <div class="input mb-10 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
-              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
-              <div class="ml-2 text-xl flex items-center">mmol/100g</div>
+              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
             </div>
           </div>
         </div>
@@ -87,7 +87,12 @@
                 <option value="1.37">piasek słabo gliniasty pylasty</option>
                 <option value="1.53">piasek słabo gliniasty</option>
                 <option value="1.48">piasek gliniasty lekki</option>
-                <option value="1.47">piasek gliniasty lekki pylasty</option>
+                <option
+                  value="1.
+                "
+                >
+                  piasek gliniasty lekki pylasty
+                </option>
                 <option value="1.55">piasek gliniasty mocny</option>
                 <option value="1.49">piasek gliniasty mocny pylasty</option>
                 <option value="1.5">glina piaszczysta</option>
@@ -139,7 +144,7 @@
             </div> -->
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="corg" placeholder="Zawartość C-org." />
-              <div class="ml-2 text-xl flex items-center">mg/100g</div>
+              <div class="ml-2 text-xl flex items-center">%</div>
             </div>
           </div>
         </div>
@@ -168,6 +173,27 @@
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">H<sup>+</sup>:</div>
               <div class="text-3xl ml-4 text-center" id="H-result"></div>
+            </div>
+            <div class="flex justify-around font-bold text-xl border-t-2 border-bg-info pt-4"><span class="text-too-little">za mało</span><span class="text-top-agrar-green">optimum</span><span class="text-too-much">za dużo</span></div>
+          </div>
+        </div>
+        <!-- wyniki - sumy-->
+        <div class="section w-80 p-3 flex flex-col justify-start" id="result3-container">
+          <div class="section-content">
+            <div class="info mb-6 flex justify-around items-center">
+              <div class="text-2xl text-center">Procentowy udział kationów w komp. sorp.:</div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Suma zasad:</div>
+              <div class="text-2xl ml-4 text-center" id="sorb-sum-result"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Pojemność KS:</div>
+              <div class="text-2xl ml-4 text-center" id="soil-result"></div>
+            </div>
+            <div class="info mb-5 flex justify-center">
+              <div class="text-2xl text-center">Stopień wysyc. KS kat. zasad.:</div>
+              <div class="text-2xl ml-4 text-center" id="soil-percent-result"></div>
             </div>
           </div>
         </div>
@@ -216,14 +242,14 @@
               <div class="text-2xl text-center">Ilość Ca<sup>2+</sup>:</div>
               <div class="text-2xl ml-4 text-center" id="Ca-ilosc"></div>
             </div>
-            <div class="info mb-5 flex justify-center">
+            <!-- <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Ca-dawka-mg"></div>
             </div>
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Ca-dawka-kg"></div>
-            </div>
+            </div> -->
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Ca-dawka-kg-O"></div>
@@ -265,14 +291,14 @@
               <div class="text-2xl text-center">Ilość Mg<sup>2+</sup>:</div>
               <div class="text-2xl ml-4 text-center" id="Mg-ilosc"></div>
             </div>
-            <div class="info mb-5 flex justify-center">
+            <!-- <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Mg-dawka-mg"></div>
             </div>
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Mg-dawka-kg"></div>
-            </div>
+            </div> -->
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="Mg-dawka-kg-O"></div>
@@ -312,14 +338,14 @@
               <div class="text-2xl text-center">Ilość K<sup>+</sup>:</div>
               <div class="text-2xl ml-4 text-center" id="K-ilosc"></div>
             </div>
-            <div class="info mb-5 flex justify-center">
+            <!-- <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="K-dawka-mg"></div>
             </div>
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="K-dawka-kg"></div>
-            </div>
+            </div> -->
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Dawka:</div>
               <div class="text-2xl ml-4 text-center" id="K-dawka-kg-O"></div>

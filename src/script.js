@@ -37,8 +37,11 @@ const elementHh = document.querySelector("#Hh");
 
 const elementSoilType = document.querySelector("#soil-type");
 const elementSoilHeight = document.querySelector("#soil-height");
-// const elementIl = document.querySelector("#il");
 const elementCorg = document.querySelector("#corg");
+
+const elementSorbSum = document.querySelector("#sorb-sum-result");
+const elementSoilResult = document.querySelector("#soil-result");
+const elementSoilPercentResult = document.querySelector("#soil-percent-result");
 
 const elementCaResult = document.querySelector("#Ca-result");
 const elementMgResult = document.querySelector("#Mg-result");
@@ -48,6 +51,7 @@ const elementHResult = document.querySelector("#H-result");
 
 const elementResult1 = document.querySelector("#result1-container");
 const elementResult2 = document.querySelector("#result2-container");
+const elementResult3 = document.querySelector("#result3-container");
 const elementResultCa = document.querySelector("#result-Ca-container");
 const elementResultMg = document.querySelector("#result-Mg-container");
 const elementResultK = document.querySelector("#result-K-container");
@@ -59,6 +63,7 @@ const elementKPrzekroczony = document.querySelector("#K-cel-przekroczony");
 
 elementResult1.classList.add("hidden");
 elementResult2.classList.add("hidden");
+elementResult3.classList.add("hidden");
 elementResultCa.classList.add("hidden");
 elementResultMg.classList.add("hidden");
 elementResultK.classList.add("hidden");
@@ -98,6 +103,7 @@ document.querySelectorAll("input, select").forEach((inputField) => {
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
+      elementResult3.classList.remove("hidden");
     } else if (Hh !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += Hh;
 
@@ -117,7 +123,11 @@ document.querySelectorAll("input, select").forEach((inputField) => {
 
       elementResult1.classList.remove("hidden");
       elementResult2.classList.remove("hidden");
+      elementResult3.classList.remove("hidden");
     }
+    elementSorbSum.innerHTML = sumZasad.toFixed(2).toString() + " mmol/100 g";
+    elementSoilResult.innerHTML = (sumZasad + sumKwas).toFixed(2).toString() + " mmol/100 g";
+    elementSoilPercentResult.innerHTML = ((sumZasad / (sumZasad + sumKwas)) * 100).toFixed(1).toString() + "%";
   });
 });
 function isNotNull(Ca, Mg, K, Na) {
@@ -146,8 +156,8 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   const elementCel = document.querySelector("#" + name + "-cel");
   const elementInput = document.querySelector("#" + name + "-cel-input");
   const elementIlosc = document.querySelector("#" + name + "-ilosc");
-  const elementDawkaMg = document.querySelector("#" + name + "-dawka-mg");
-  const elementDawkaKg = document.querySelector("#" + name + "-dawka-kg");
+  // const elementDawkaMg = document.querySelector("#" + name + "-dawka-mg");
+  // const elementDawkaKg = document.querySelector("#" + name + "-dawka-kg");
   const elementDawkaKgO = document.querySelector("#" + name + "-dawka-kg-O");
 
   soil = Number(elementSoilHeight.value) * Number(elementSoilType.value) * 100;
@@ -166,14 +176,14 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   result *= pojWym / 100;
   elementIlosc.innerHTML = result.toFixed(2) + " cmol(+)/kg";
   result *= multiplyer1;
-  elementDawkaMg.innerHTML = result.toFixed(2) + " mg " + name;
+  // elementDawkaMg.innerHTML = result.toFixed(2) + " mg " + name;
   result *= soil / 1000;
-  elementDawkaKg.innerHTML = result.toFixed(2) + " kg/ha " + name;
+  // elementDawkaKg.innerHTML = result.toFixed(2) + " kg/ha " + name;
   result *= multiplyer2;
   if (name === "K") {
     elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "<sub>2</sub>O";
   } else {
-    elementDawkaKgO.innerHTML = result.toFixed(0) + " kg/ha " + name + "O";
+    elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "O";
   }
 }
 function displaySoil(value, name, multiplyer) {
@@ -209,6 +219,7 @@ document.querySelector("#reset").addEventListener("click", function () {
 
   elementResult1.classList.add("hidden");
   elementResult2.classList.add("hidden");
+  elementResult3.classList.add("hidden");
   elementResultCa.classList.add("hidden");
   elementResultMg.classList.add("hidden");
   elementResultK.classList.add("hidden");
