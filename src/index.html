@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kalkulator sumy kationów</title>
+    <title>Kalkulator właściwości sorpcyjnych gleb</title>
     <link rel="stylesheet" href="output.css" />
 
     <!-- fonty -->
@@ -15,7 +15,7 @@
   <body class="m-0 p-0 bg-top-agrar-green/10 flex justify-center font-body">
     <div class="m-3 bg-white rounded-3xl container flex flex-col justify-start border-2 border-bg-info/25">
       <div class="header m-3 flex justify-between">
-        <div class="text-2xl font-header font-bold flex justify-center items-center flex-1"><p>Kalkulator sumy kationów</p></div>
+        <div class="text-2xl font-header font-bold flex justify-center items-center flex-1"><p>Kalkulator właściwości sorpcyjnych gleb</p></div>
         <div class="h-full flex items-center justify-center">
           <button id="reset" class="w-24 h-12 flex items-center justify-center border-top-agrar-green border-2 rounded-3xl text-2xl text-top-agrar-green hover:bg-top-agrar-green/25">Resetuj</button>
         </div>
@@ -40,15 +40,15 @@
               </div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info  rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
               <div class="ml-2 text-xl flex items-center" id="Mg-unit">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
-              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info  rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
               <div class="ml-2 text-xl flex items-center" id="K-unit">mg/100 g</div>
             </div>
             <div class="input mb-10 flex">
-              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info  rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
               <div class="ml-2 text-xl flex items-center" id="Na-unit">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
@@ -212,7 +212,7 @@
               <div class="text-2xl text-center">Regulacja <b>wapnia</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
-              <div class="text-3xl text-too-much text-center">Cel przekroczony</div>
+              <div class="text-3xl text-too-much text-center">Cel przekroczony, ograniczyć nawożenie</div>
             </div>
           </div>
         </div>
@@ -271,7 +271,7 @@
               <div class="text-2xl text-center">Regulacja <b>magnezu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
-              <div class="text-3xl text-too-much text-center">Cel przekroczony</div>
+              <div class="text-3xl text-too-much text-center">Cel przekroczony, ograniczyć nawożenie</div>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@
               <div class="text-2xl text-center">Regulacja <b>potasu</b> w kompleksie sorpcyjnym:</div>
             </div>
             <div class="info flex justify-around items-center">
-              <div class="text-3xl text-too-much text-center">Cel przekroczony</div>
+              <div class="text-3xl text-too-much text-center">Cel przekroczony, ograniczyć nawożenie</div>
             </div>
           </div>
         </div>
