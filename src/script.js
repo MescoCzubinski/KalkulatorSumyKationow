@@ -49,6 +49,11 @@ const elementKResult = document.querySelector("#K-result");
 const elementNaResult = document.querySelector("#Na-result");
 const elementHResult = document.querySelector("#H-result");
 
+const elementUnitSelector = document.querySelector("#unit-selector");
+const elementMgUnit = document.querySelector("#Mg-unit");
+const elementKUnit = document.querySelector("#K-unit");
+const elementNaUnit = document.querySelector("#Na-unit");
+
 const elementResult1 = document.querySelector("#result1-container");
 const elementResult2 = document.querySelector("#result2-container");
 const elementResult3 = document.querySelector("#result3-container");
@@ -74,62 +79,67 @@ elementKPrzekroczony.classList.add("hidden");
 
 document.querySelectorAll("input, select").forEach((inputField) => {
   inputField.addEventListener("input", function () {
-    let Ca = Number(elementCa.value) / 20.04;
-    let Mg = Number(elementMg.value) / 12.155;
-    let K = Number(elementK.value) / 39.1;
-    let Na = Number(elementNa.value) / 22.99;
+    let Ca = Number(elementCa.value);
+    let Mg = Number(elementMg.value);
+    let K = Number(elementK.value);
+    let Na = Number(elementNa.value);
     let Hh = Number(elementHh.value);
     let H = Number(elementH.value);
     let Al = Number(elementAl.value);
+    if(elementUnitSelector.value === "mg/100 g"){
+      Ca /= 20.04;
+      Mg /= 12.155;
+      K /= 39.1;
+      Na /= 22.99;
+    }
     let sumZasad = Ca + Mg + K + Na;
 
     let sumKwas = 0;
     if (H !== 0 && Al !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += H + Al;
-
-      displayMain(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
-      displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
-      displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
-      displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
+      displayAll(Ca, Mg, K, Na, Hh, sumZasad, sumKwas)
       displayMain(sumKwas / (sumZasad + sumKwas), "H", 0.15, 0);
-      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
-      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
-      displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
-      displaySoil(Ca * 20.04, "Ca", 1.399);
-      displaySoil(Mg * 12.155, "Mg", 1.658);
-      displaySoil(K * 39.1, "K", 1.205);
-      displaySoil(Na * 22.99, "Na", 0);
-      displayHumus();
-
-      elementResult1.classList.remove("hidden");
-      elementResult2.classList.remove("hidden");
-      elementResult3.classList.remove("hidden");
     } else if (Hh !== 0 && isNotNull(Ca, Mg, K, Na)) {
       sumKwas += Hh;
-
-      displayMain(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
-      displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
-      displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
-      displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
+      displayAll(Ca, Mg, K, Na, Hh, sumZasad, sumKwas)
       displayMain(Hh / (sumZasad + sumKwas), "H", 0.15, 0);
-      displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
-      displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
-      displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
-      displaySoil(Ca * 20.04, "Ca", 1.399);
-      displaySoil(Mg * 12.155, "Mg", 1.658);
-      displaySoil(K * 39.1, "K", 1.205);
-      displaySoil(Na * 22.99, "Na", 0);
-      displayHumus();
-
-      elementResult1.classList.remove("hidden");
-      elementResult2.classList.remove("hidden");
-      elementResult3.classList.remove("hidden");
     }
     elementSorbSum.innerHTML = sumZasad.toFixed(2).toString() + " mmol/100 g";
     elementSoilResult.innerHTML = (sumZasad + sumKwas).toFixed(2).toString() + " mmol/100 g";
     elementSoilPercentResult.innerHTML = ((sumZasad / (sumZasad + sumKwas)) * 100).toFixed(1).toString() + "%";
   });
 });
+elementUnitSelector.addEventListener('change', (event)=>{
+  let unit = event.target.value;
+  elementMgUnit.innerHTML = unit;
+  elementKUnit.innerHTML = unit;
+  elementNaUnit.innerHTML = unit;
+})
+function displayAll(Ca, Mg, K, Na, Hh, sumZasad, sumKwas){
+  displayMain(Ca / (sumZasad + sumKwas), "Ca", 0.8, 0.65);
+  displayMain(Mg / (sumZasad + sumKwas), "Mg", 0.15, 0.1);
+  displayMain(K / (sumZasad + sumKwas), "K", 0.05, 0.02);
+  displayMain(Na / (sumZasad + sumKwas), "Na", 0.02, 0);
+  displayRegulations(Ca / (sumZasad + sumKwas), "Ca", sumZasad + sumKwas, 20.04, 1.399);
+  displayRegulations(Mg / (sumZasad + sumKwas), "Mg", sumZasad + sumKwas, 12.155, 1.658);
+  displayRegulations(K / (sumZasad + sumKwas), "K", sumZasad + sumKwas, 39.1, 1.205);
+  if(elementUnitSelector.value === "mg/100 g"){
+    Ca *= 20.04;
+    Mg *= 12.155;
+    K *= 39.1;
+    Na *= 22.99;
+  }
+  displaySoil(Ca, "Ca", 1.399);
+  displaySoil(Mg, "Mg", 1.658);
+  displaySoil(K, "K", 1.205);
+  displaySoil(Na, "Na", 0);
+  displayHumus();
+
+  elementResult1.classList.remove("hidden");
+  elementResult2.classList.remove("hidden");
+  elementResult3.classList.remove("hidden");
+}
+
 function isNotNull(Ca, Mg, K, Na) {
   if (Ca !== 0 && Mg !== 0 && K !== 0 && Na !== 0 && Number(elementSoilType.value) !== 0) {
     return true;
@@ -156,8 +166,6 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   const elementCel = document.querySelector("#" + name + "-cel");
   const elementInput = document.querySelector("#" + name + "-cel-input");
   const elementIlosc = document.querySelector("#" + name + "-ilosc");
-  // const elementDawkaMg = document.querySelector("#" + name + "-dawka-mg");
-  // const elementDawkaKg = document.querySelector("#" + name + "-dawka-kg");
   const elementDawkaKgO = document.querySelector("#" + name + "-dawka-kg-O");
 
   soil = Number(elementSoilHeight.value) * Number(elementSoilType.value) * 100;
@@ -176,9 +184,7 @@ function displayRegulations(value, name, pojWym, multiplyer1, multiplyer2) {
   result *= pojWym / 100;
   elementIlosc.innerHTML = result.toFixed(2) + " cmol(+)/kg";
   result *= multiplyer1;
-  // elementDawkaMg.innerHTML = result.toFixed(2) + " mg " + name;
   result *= soil / 1000;
-  // elementDawkaKg.innerHTML = result.toFixed(2) + " kg/ha " + name;
   result *= multiplyer2;
   if (name === "K") {
     elementDawkaKgO.innerHTML = result.toFixed(2) + " kg/ha " + name + "<sub>2</sub>O";
@@ -203,6 +209,7 @@ function displayHumus() {
     document.querySelector("#humus").innerHTML = (Number(elementCorg.value) * 1.724).toFixed(2) + " %";
   }
 }
+
 document.querySelector("#reset").addEventListener("click", function () {
   const elementsToClean = [document.querySelector("#Ca"), document.querySelector("#Mg"), document.querySelector("#K"), document.querySelector("#Na"), document.querySelector("#H"), document.querySelector("#Al"), document.querySelector("#Hh"), document.querySelector("#corg"), document.querySelector("#Ca-result"), document.querySelector("#Mg-result"), document.querySelector("#K-result"), document.querySelector("#Na-result"), document.querySelector("#H-result")];
 
@@ -216,6 +223,11 @@ document.querySelector("#reset").addEventListener("click", function () {
   elementSoilType.classList.remove("visited");
   elementSoilHeight.value = "30";
   elementSoilHeight.classList.remove("visited");
+  elementUnitSelector.value = "mg/100 g";
+  elementUnitSelector.classList.remove("visited");
+  elementMgUnit.innerHTML = "mg/100 g";
+  elementKUnit.innerHTML = "mg/100 g";
+  elementNaUnit.innerHTML = "mg/100 g";
 
   elementResult1.classList.add("hidden");
   elementResult2.classList.add("hidden");

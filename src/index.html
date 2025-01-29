@@ -27,21 +27,29 @@
             <div class="info mb-6">
               <div class="text-2xl text-center">Zawartość kationów zasadowych:</div>
             </div>
+            <!-- <div class="text-bg-info text-sm flex justify-center m-4 mb-2">Uzupełnij pola i wybierz jednostkę</div> -->
             <div class="input mb-5 flex">
-              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
-              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
+              <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-l-3xl rounded-r-lg flex-1 hover:bg-bg-info/25" id="Ca" placeholder="Ca²⁺" />
+              <div class="ml-2 text-xl flex items-center">
+                <select title="wybierz jednostkę" class="w-36 h-12 text-lg border-2 border-bg-info rounded-r-3xl rounded-l-lg flex-1 hover:bg-bg-info/25" id="unit-selector">
+                  <option value="mg/100 g" selected>mg/100 g</option>
+                  <option value="me/100 g">me/100 g</option>
+                  <option value="cmol(+)/kg">cmol(+)/kg</option>
+                  <option value="mmol(+)/100 ">mmol(+)/100 g</option>
+                </select>
+              </div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Mg" placeholder="Mg²⁺" />
-              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
+              <div class="ml-2 text-xl flex items-center" id="Mg-unit">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="K" placeholder="K⁺" />
-              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
+              <div class="ml-2 text-xl flex items-center" id="K-unit">mg/100 g</div>
             </div>
             <div class="input mb-10 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Na" placeholder="Na⁺" />
-              <div class="ml-2 text-xl flex items-center">mg/100 g</div>
+              <div class="ml-2 text-xl flex items-center" id="Na-unit">mg/100 g</div>
             </div>
             <div class="input mb-5 flex">
               <input type="text" inputmode="numeric" class="w-24 h-12 pl-2 text-xl border-2 border-bg-info rounded-3xl flex-1 hover:bg-bg-info/25" id="Hh" placeholder="Wartość Hh" />
@@ -181,7 +189,7 @@
         <div class="section w-80 p-3 flex flex-col justify-start" id="result3-container">
           <div class="section-content">
             <div class="info mb-6 flex justify-around items-center">
-              <div class="text-2xl text-center">Procentowy udział kationów w komp. sorp.:</div>
+              <div class="text-2xl text-center">Wartości kompleksu sorpcyjnego (KS)</div>
             </div>
             <div class="info mb-5 flex justify-center">
               <div class="text-2xl text-center">Suma zasad:</div>
@@ -192,7 +200,7 @@
               <div class="text-2xl ml-4 text-center" id="soil-result"></div>
             </div>
             <div class="info mb-5 flex justify-center">
-              <div class="text-2xl text-center">Stopień wysyc. KS kat. zasad.:</div>
+              <div class="text-2xl text-center font-bold">Stopień wysyc. KS kat. zasad.:</div>
               <div class="text-2xl ml-4 text-center" id="soil-percent-result"></div>
             </div>
           </div>
